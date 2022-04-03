@@ -1,16 +1,14 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.stqa.pft.addressbook.model.GroupData;
 
-public class TestBase {
+public class ApplicationManager {
     ChromeDriver wd;
 
-    @BeforeMethod
-    public void setUp() {
+    public void init() {
         wd = new ChromeDriver();
         wd.manage().window().setSize(new Dimension(1062, 813));
         //      wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -26,15 +24,15 @@ public class TestBase {
         wd.findElement(By.xpath("//input[@type='submit']")).click();
     }
 
-    protected void returnToGroupPage() {
+    public void returnToGroupPage() {
         wd.findElement(By.xpath("//a[text()='group page']")).click();
     }
 
-    protected void submitGroupCreation() {
+    public void submitGroupCreation() {
         wd.findElement(By.xpath("//input[@type='submit']")).click();
     }
 
-    protected void fillGroupForm(GroupData groupData) {
+    public void fillGroupForm(GroupData groupData) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).sendKeys(groupData.getNamegroup());
         wd.findElement(By.name("group_header")).click();
@@ -43,27 +41,25 @@ public class TestBase {
         wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
-    protected void initGroupCreation() {
+    public void initGroupCreation() {
 
         wd.findElement(By.name("new")).click();
     }
 
-    protected void gotoGroupPage() {
+    public void gotoGroupPage() {
 
         wd.findElement(By.xpath("//a[@href='group.php']")).click();
     }
 
-    @AfterMethod
-    public void tearDown() {
-
+    public void stop() {
         wd.quit();
     }
 
-    protected void deleteSelectedGroup() {
+    public void deleteSelectedGroup() {
         wd.findElement(By.xpath("//hr/preceding-sibling::input[@value='Delete group(s)']")).click();
     }
 
-    protected void selectGroup2() {
+    public void selectGroup2() {
         wd.findElement(By.xpath("//span[@class='group'][2]//input")).click();
     }
 }
