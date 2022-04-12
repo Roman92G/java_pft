@@ -10,6 +10,7 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
+
         app.init();
     }
 

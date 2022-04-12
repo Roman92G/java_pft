@@ -11,10 +11,12 @@ public class GroupHelper extends HelperBase {
     }
 
     public void returnToGroupPage() {
+
         click(By.xpath("//a[text()='group page']"));
     }
 
     public void submitGroupCreation() {
+
         click(By.xpath("//input[@type='submit']"));
     }
 
