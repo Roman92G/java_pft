@@ -18,14 +18,16 @@ public class ContactData {
         return firstname;
     }
 
-    public String getMiddlename(){
+    public String getMiddlename() {
 
         return middlename;
-}
+    }
+
     public String getLastname() {
 
-         return lastname;
+        return lastname;
     }
+
     public String getNickname() {
 
         return nickname;

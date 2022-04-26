@@ -32,10 +32,12 @@ public class GroupHelper extends HelperBase {
     }
 
     public void deleteSelectedGroup() {
+
         click(By.xpath("//hr/preceding-sibling::input[@value='Delete group(s)']"));
     }
 
     public void selectGroup2() {
+
         click(By.xpath("//span[@class='group'][2]//input"));
     }
 }
